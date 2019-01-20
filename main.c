@@ -16,6 +16,6 @@
 
 int main()
 {
-    printf("Tag des Jahres: %i\n", day_of_the_year(25, 6, 2018));
+    printf("Tag des Jahres: %i\n", day_of_the_year(01, 09, 2018));
     return 0;
 }
