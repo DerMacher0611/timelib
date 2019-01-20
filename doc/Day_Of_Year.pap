@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<FRAME GUID="2FB25471-B62C-4EE6-BD43-F819C095ACF8" FORMAT="0000" APP_VERSION="2.2.0.8" CHECKSUM="B5DE209E5CED5A56">
-  <PROJECT FORMAT="1.00" NAME="Day_Of_Year" AUTHOR="teilnehmer" CREATED="2019.01.20 08:47:52" MODIFIED="2019.01.20 08:54:15">
+<FRAME GUID="2FB25471-B62C-4EE6-BD43-F819C095ACF8" FORMAT="0000" APP_VERSION="2.2.0.8" CHECKSUM="E8618D45CB9AA4BE">
+  <PROJECT FORMAT="1.00" NAME="Day_Of_Year" AUTHOR="teilnehmer" CREATED="2019.01.20 08:47:52" MODIFIED="2019.01.20 09:06:58">
     <DIAGRAMS>
-      <DIAGRAM FORMAT="1.00" ID="0" NAME="Day_Of_Year" CREATED="2019.01.20 08:48:00" MODIFIED="2019.01.20 08:54:15">
-        <LAYOUT FORMAT="1.00" COLUMNS="1" ROWS="10">
+      <DIAGRAM FORMAT="1.00" ID="0" NAME="Day_Of_Year (day,month,year)" CREATED="2019.01.20 08:48:00" MODIFIED="2019.01.20 09:06:58">
+        <LAYOUT FORMAT="1.00" COLUMNS="2" ROWS="10">
           <ENTRIES>
             <ENTRY COLUMN="0" ROW="0" ANCHOR="True">
               <FIGURE SUBTYPE="PapTitle" FORMAT="1.00" ID="0">
-                <TEXT><![CDATA[Day_Of_Year]]></TEXT>
+                <TEXT><![CDATA[Day_Of_Year (day,month,year)]]></TEXT>
               </FIGURE>
             </ENTRY>
             <ENTRY COLUMN="0" ROW="1">
@@ -24,33 +24,33 @@ int totalMonth = eingegebener Monat]]></TEXT>
               </FIGURE>
             </ENTRY>
             <ENTRY COLUMN="0" ROW="3">
-              <FIGURE SUBTYPE="PapInput" FORMAT="1.00" ID="4">
-                <TEXT><![CDATA[Eingabe Datum DD:MM:YYYY (keine führende Nullen)]]></TEXT>
-              </FIGURE>
-            </ENTRY>
-            <ENTRY COLUMN="0" ROW="4">
               <FIGURE SUBTYPE="PapCondition" FORMAT="1.00" ID="6">
                 <TEXT><![CDATA[Ist das eingegebene Datum ein legitimes Datum]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="0" ROW="5">
+            <ENTRY COLUMN="0" ROW="4">
               <FIGURE SUBTYPE="PapLoopStart" FORMAT="1.00" ID="8" ASSOCIATE="10">
-                <TEXT><![CDATA[Ein Durchlauf für i, bis i = Monate -1 , pro Durchlauf i++]]></TEXT>
+                <TEXT><![CDATA[für i von 0 bis i = Monate -1 , pro Durchlauf i++]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="0" ROW="6">
+            <ENTRY COLUMN="0" ROW="5">
               <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="12">
                 <TEXT><![CDATA[get_days_for_month für currMonth und addiert die Tage zu totalDays]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="0" ROW="7">
+            <ENTRY COLUMN="0" ROW="6">
               <FIGURE SUBTYPE="PapLoopEnd" FORMAT="1.00" ID="10" ASSOCIATE="8">
                 <TEXT><![CDATA[]]></TEXT>
               </FIGURE>
             </ENTRY>
-            <ENTRY COLUMN="0" ROW="8">
+            <ENTRY COLUMN="0" ROW="7">
               <FIGURE SUBTYPE="PapActivity" FORMAT="1.00" ID="16">
-                <TEXT><![CDATA[Zu totalDays werde die Tage vom laufenden Monat addiert (einfach DD zu totalDays addieren).]]></TEXT>
+                <TEXT><![CDATA[Zu totalDays werde die Tage vom laufenden Monat addiert (einfach day zu totalDays addieren).]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="0" ROW="8">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="32">
+                <TEXT><![CDATA[]]></TEXT>
               </FIGURE>
             </ENTRY>
             <ENTRY COLUMN="0" ROW="9">
@@ -58,17 +58,30 @@ int totalMonth = eingegebener Monat]]></TEXT>
                 <TEXT><![CDATA[Ende]]></TEXT>
               </FIGURE>
             </ENTRY>
+            <ENTRY COLUMN="1" ROW="3">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="20">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
+            <ENTRY COLUMN="1" ROW="8">
+              <FIGURE SUBTYPE="PapConnector" FORMAT="1.00" ID="30">
+                <TEXT><![CDATA[]]></TEXT>
+              </FIGURE>
+            </ENTRY>
           </ENTRIES>
         </LAYOUT>
         <CONNECTIONS>
           <CONNECTION FORMAT="1.00" ID="3" FROM="1" TO="14" TEXT="" />
-          <CONNECTION FORMAT="1.00" ID="5" FROM="4" TO="6" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="21" FROM="6" TO="20" TEXT="" />
           <CONNECTION FORMAT="1.00" ID="7" FROM="6" TO="8" TEXT="" />
           <CONNECTION FORMAT="1.00" ID="11" FROM="10" TO="16" TEXT="" />
           <CONNECTION FORMAT="1.00" ID="9" FROM="8" TO="12" TEXT="" />
           <CONNECTION FORMAT="1.00" ID="13" FROM="12" TO="10" TEXT="" />
-          <CONNECTION FORMAT="1.00" ID="15" FROM="14" TO="4" TEXT="" />
-          <CONNECTION FORMAT="1.00" ID="17" FROM="16" TO="2" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="23" FROM="20" TO="30" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="33" FROM="32" TO="2" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="17" FROM="16" TO="32" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="34" FROM="30" TO="32" TEXT="" />
+          <CONNECTION FORMAT="1.00" ID="35" FROM="14" TO="6" TEXT="" />
         </CONNECTIONS>
       </DIAGRAM>
     </DIAGRAMS>
