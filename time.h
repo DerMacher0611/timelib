@@ -9,6 +9,6 @@ int get_days_for_month(int, int);
 
 int day_of_the_year(int, int, int);
 
-// void input_date(&day, &month, &year);
+void input_date(int*, int*, int*);
 
 #endif // TIME_H_INCLUDED

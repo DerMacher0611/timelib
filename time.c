@@ -67,22 +67,22 @@ return 0;
 }
 
 /// Checks if the given date is valid.
-int exist_date(int day, int month, int year){
+int exists_date(int day, int month, int year){
     if(year < 1582 || year > 2400 || month < 1 || month > 12){
-        return -1;
+        return 0;
     }
 
     if(day > get_days_for_month(month,year) || day < 1){
-        return -1;
+        return 0;
     }
 
-    return 0;
+    return 1;
 }
 
 /// returns the days of the given year till an specific date.
 int day_of_the_year(int day, int month, int year)
 {
-    if(exist_date(day,month,year)){
+    if(exists_date(day,month,year) == 0){
         return -1;
     }
 
@@ -98,19 +98,20 @@ int day_of_the_year(int day, int month, int year)
     return totalDays;
 }
 
-//void input_date(&day, &month, &year){
-//
-//do{
-//    printf("\n");
-//    printf("Bitte geben Sie den Tag ein: ");
-//    scanf("%i", &day);
-//    printf("\n Bitte geben Sie den Monat ein: ");
-//    scanf("%i", & month);
-//    printf("\n Bitte geben Sie das Jahr ein: ");
-//    scanf("%i", &year);
-//
-//}while(exist_date(&day, &month, &year) == 0) // To-Do: Checken ob die übergabeparams gehen.
-//
-//}
+/// function for get date by Console-Inputs. Loop till valid date is given.
+void input_date(int *day, int *month, int *year){
+
+    do{
+        printf("\n");
+        printf("Bitte geben Sie den Tag ein: ");
+        scanf("%i", day);
+        printf("\nBitte geben Sie den Monat ein: ");
+        scanf("%i", month);
+        printf("\nBitte geben Sie das Jahr ein: ");
+        scanf("%i", year);
+
+    }while(exists_date(*day, *month, *year) == 0);
+
+}
 
 

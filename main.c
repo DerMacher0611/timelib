@@ -3,6 +3,7 @@
  *date: 18.12.2018
  *author: Konrad Mach
  *last modified on/by : 20.01.2019/Konrad Mach
+ *                      03.02.2019/Konrad Mach / Added function input_date
   **/
 
 #include <stdio.h>
@@ -16,6 +17,12 @@
 
 int main()
 {
-    printf("Tag des Jahres: %i\n", day_of_the_year(01, 09, 2018));
+    int day;
+    int month;
+    int year;
+
+    input_date(&day, &month, &year);
+    printf("Tag des Jahres: %i\n", day_of_the_year(day, month, year));
+
     return 0;
 }
