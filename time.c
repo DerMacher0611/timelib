@@ -97,20 +97,18 @@ int day_of_the_year(struct date givenDate)
 }
 
 /// function for get date by Console-Inputs. Loop till valid date is given.
-struct date input_date(struct date givenDate){
+void input_date(struct date *givenDate){
 
     do{
         printf("\n");
         printf("Bitte geben Sie den Tag ein: ");
-        scanf("%i", &givenDate.day);
+        scanf("%i", &givenDate->day);
         printf("\nBitte geben Sie den Monat ein: ");
-        scanf("%i", &givenDate.month);
+        scanf("%i", &givenDate->month);
         printf("\nBitte geben Sie das Jahr ein: ");
-        scanf("%i", &givenDate.year);
+        scanf("%i", &givenDate->year);
 
-    }while(exists_date(givenDate) == 0);
-
-    return givenDate;
+    }while(exists_date(*givenDate) == 0);
 }
 
 

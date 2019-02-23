@@ -15,6 +15,6 @@ int get_days_for_month(struct date);
 
 int day_of_the_year(struct date);
 
-struct date input_date(struct date);
+void input_date(struct date*);
 
 #endif // TIME_H_INCLUDED
