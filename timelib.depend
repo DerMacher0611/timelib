@@ -23,3 +23,15 @@
 	<stdlib.h>
 	"time.h"
 
+1550922026 source:d:\portablegit\timelib\main.c
+	<stdio.h>
+	<stdlib.h>
+	"time.h"
+
+1550921942 d:\portablegit\timelib\time.h
+
+1550921922 source:d:\portablegit\timelib\time.c
+	<stdio.h>
+	<stdlib.h>
+	"time.h"
+

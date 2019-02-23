@@ -12,19 +12,15 @@
 
 // Global vars.
 
-int DAY;
-int MONTH;
-int YEAR;
-
 /// Checks if given year is leapyear.
-int is_leapyear(int year){
-    if(year < 1582 || year > 2400){
+int is_leapyear(struct date givenDate){
+    if(givenDate.year < 1582 || givenDate.year > 2400){
         return -1;
     }
 
-    if((year % 4) == 0 ){
-        if((year % 100) == 0){
-            if((year % 400) == 0){
+    if((givenDate.year % 4) == 0 ){
+        if((givenDate.year % 100) == 0){
+            if((givenDate.year % 400) == 0){
                 return 1;
             }
         }
@@ -36,13 +32,13 @@ int is_leapyear(int year){
 }
 
 ///returns days of month, needs month and year.
-int get_days_for_month(int month, int year){
-    if(year < 1582 || year > 2400 || month < 1 || month > 12){
+int get_days_for_month(struct date givenDate){
+    if(givenDate.year < 1582 || givenDate.year > 2400 || givenDate.month < 1 || givenDate.month > 12){
         return -1;
     }
 
-    if(month == 2){
-        if(is_leapyear(year) == 1){
+    if(givenDate.month == 2){
+        if(is_leapyear(givenDate) == 1){
             return 29;
         }
         else{
@@ -50,7 +46,7 @@ int get_days_for_month(int month, int year){
         };
     }
 
-    switch (month){
+    switch (givenDate.month){
         case 1: return 31; break;
         case 3: return 31; break;
         case 4: return 30; break;
@@ -67,12 +63,12 @@ return 0;
 }
 
 /// Checks if the given date is valid.
-int exists_date(int day, int month, int year){
-    if(year < 1582 || year > 2400 || month < 1 || month > 12){
+int exists_date(struct date givenDate){
+    if(givenDate.year < 1582 || givenDate.year > 2400 || givenDate.month < 1 || givenDate.month > 12){
         return 0;
     }
 
-    if(day > get_days_for_month(month,year) || day < 1){
+    if(givenDate.day > get_days_for_month(givenDate) || givenDate.day < 1){
         return 0;
     }
 
@@ -80,38 +76,41 @@ int exists_date(int day, int month, int year){
 }
 
 /// returns the days of the given year till an specific date.
-int day_of_the_year(int day, int month, int year)
+int day_of_the_year(struct date givenDate)
 {
-    if(exists_date(day,month,year) == 0){
+    if(exists_date(givenDate) == 0){
         return -1;
     }
 
     int totalDays = 0;
-    int currMonth = month -1;
+    struct date currCount;
+    currCount.month = givenDate.month;
+    currCount.year = givenDate.year;
 
-    for(int i = 0; i < (month - 1); i++ ){
-        totalDays += get_days_for_month(currMonth, year);
-        currMonth--;
+    for(int i = 0; i < (givenDate.month - 1); i++ ){
+        currCount.month = currCount.month - 1;
+        totalDays += get_days_for_month(currCount);
     }
-    totalDays += day;
+    totalDays += givenDate.day;
 
     return totalDays;
 }
 
 /// function for get date by Console-Inputs. Loop till valid date is given.
-void input_date(int *day, int *month, int *year){
+struct date input_date(struct date givenDate){
 
     do{
         printf("\n");
         printf("Bitte geben Sie den Tag ein: ");
-        scanf("%i", day);
+        scanf("%i", &givenDate.day);
         printf("\nBitte geben Sie den Monat ein: ");
-        scanf("%i", month);
+        scanf("%i", &givenDate.month);
         printf("\nBitte geben Sie das Jahr ein: ");
-        scanf("%i", year);
+        scanf("%i", &givenDate.year);
 
-    }while(exists_date(*day, *month, *year) == 0);
+    }while(exists_date(givenDate) == 0);
 
+    return givenDate;
 }
 
 

@@ -17,12 +17,9 @@
 
 int main()
 {
-    int day;
-    int month;
-    int year;
-
-    input_date(&day, &month, &year);
-    printf("Tag des Jahres: %i\n", day_of_the_year(day, month, year));
+    struct date inputDate;
+    inputDate = input_date(inputDate);
+    printf("Tag des Jahres: %i\n", day_of_the_year(inputDate));
 
     return 0;
 }
