@@ -17,9 +17,9 @@
 
 int main()
 {
-    struct date inputDate;
-    input_date(&inputDate);
-    printf("Tag des Jahres: %i\n", day_of_the_year(inputDate));
+    struct date input_date;
+    input_date(&input_date);
+    printf("Tag des Jahres: %i\n", day_of_the_year(input_date));
 
     return 0;
 }
